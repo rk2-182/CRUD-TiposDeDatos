@@ -27,7 +27,13 @@ def Menu():
             print("3.-Clientes")
             op = int(input("Ingresa la opción:"))
             if op==1:
-                CRUD.mostrarDatos(1)
+                datos = CRUD.mostrarDatos(1)
+                if len(datos)>=1:
+                   print(datos)
+                   print(type(datos))
+                   print(len(datos))
+                else:
+                    print("No se encuentran datos registrados")
             elif op==2:
                 CRUD.mostrarDatos(2)
             elif op ==3:
@@ -35,7 +41,20 @@ def Menu():
             else:
                 print("Opcion erronea")
         elif opcion == 2:
-            pass
+            print("¿Donde desea ingresar datos?")
+            print("1.-Proveedor")
+            print("2.-Productos")
+            print("3.-Clientes")
+            op = int(input("Ingresa la opción:"))
+            if op==1:
+                CRUD.insertarDatosProveedor()
+            elif op==2:
+                CRUD.insertarDatosProducto()
+            elif op ==3:
+                CRUD.insertarDatosCliente()
+            else:
+                print("Opcion erronea")
+
         
         elif opcion ==6:
             print("Adios!")

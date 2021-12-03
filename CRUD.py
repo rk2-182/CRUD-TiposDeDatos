@@ -10,7 +10,8 @@ bd = connect[0]
 cursor = connect[1]
 
 
-#Funcion para mostrar datos de las tablas
+
+#Mostrar Datos
 def mostrarDatos(opcion):
     if opcion == 1:
         cursor.execute("select * from proveedor")
@@ -18,8 +19,7 @@ def mostrarDatos(opcion):
         os.system('cls')
         print("Tabla Proveedor")
         print("---------------")
-        for i in resultado:
-            print(i)
+        return resultado
     elif opcion == 2:
         cursor.execute("select * from productos")
         resultado = cursor.fetchall()
@@ -44,8 +44,10 @@ def mostrarDatos(opcion):
 
 #Insertar Datos
 def insertarDatosProveedor():
+    nombreProveedor = input("Ingrese el nombre del proveedor: ")
+    direccion = input("Ingrese la direccion: ")
     sql = 'insert into proveedor (nombre,direccion) values (%s,%s)'
-    valores = ('losperros banquetera','Napoles N°999')
+    valores = (nombreProveedor,direccion)
     cursor.execute(sql,valores) #recibe 2argumentos: las instrucciones sql y los valores
     bd.commit()
 
@@ -72,3 +74,6 @@ def insertarDatosCliente():
         print("Datos ingresados")
     else:
         print("Error al ingresar datos")
+
+def insertarDatosProducto():
+    pass
