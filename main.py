@@ -54,6 +54,8 @@ def Menu():
                 CRUD.insertarDatosCliente()
             else:
                 print("Opcion erronea")
+        elif opcion == 3:
+            CRUD.actualizarProveedor()
 
         
         elif opcion ==6:

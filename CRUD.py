@@ -11,7 +11,7 @@ cursor = connect[1]
 
 
 
-#Mostrar Datos
+#******************Mostrar Datos****************
 def mostrarDatos(opcion):
     if opcion == 1:
         cursor.execute("select * from proveedor")
@@ -42,7 +42,7 @@ def mostrarDatos(opcion):
             print("--------------------")
             print(" ")
 
-#Insertar Datos
+#****************Insertar Datos**********************
 def insertarDatosProveedor():
     nombreProveedor = input("Ingrese el nombre del proveedor: ")
     direccion = input("Ingrese la direccion: ")
@@ -77,3 +77,18 @@ def insertarDatosCliente():
 
 def insertarDatosProducto():
     pass
+
+
+#****************Actualizar Datos*****************
+def actualizarProveedor():
+    sql = 'update proveedor set direccion = %s where id_proveedor=%s'
+
+    email = input("Ingrese la nueva direccion: ")
+    id = int(input("Ingrese el id del usuario: "))
+    values = (email,id)
+    cursor.execute(sql, values)
+    if cursor.rowcount == 1:
+        print("Registro ingresado exitosamente")
+        bd.commit()
+    else:
+        print("Ocurrio un error al ingresar")
