@@ -81,7 +81,7 @@ def insertarDatosProducto():
 
 #****************Actualizar Datos*****************
 def actualizarProveedor():
-    sql = 'update proveedor set direccion = %s where id_proveedor=%s'
+    sql = 'update proveedor set direccion = %s where id=%s'
 
     email = input("Ingrese la nueva direccion: ")
     id = int(input("Ingrese el id del usuario: "))
