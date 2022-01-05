@@ -3,7 +3,7 @@ import datetime
 import os
 
 #creamos una instancia del archivo que contiene la conexion y su funcion
-connect = db.conexion()
+connect = db.conectar()
 
 #valores retornados de la funcion
 bd = connect[0]
@@ -92,3 +92,21 @@ def actualizarProveedor():
         bd.commit()
     else:
         print("Ocurrio un error al ingresar")
+
+
+#************** Buscar registros ***************
+def buscarPorProducto():
+    sql = "select * from productos where nombre = %s"
+    nombre = input("Ingrese el nombre producto: ")
+    values =(nombre, )
+    cursor.execute(sql,values)
+    registro = cursor.fetchone()
+    result = cursor.rowcount
+
+    #Validar si encuentra el registro
+    if registro != None and cursor.rowcount==1: #El objeto None de Python, denota falta de valor.
+        print("\nResultado busqueda:")
+        print(registro,'result: ',result)
+    else:
+        print(registro)
+        print("No encontrado",'result',result)

@@ -1,8 +1,6 @@
 import CRUD
 import os
 
-
-
 #*****Menu*****
 def Menu():
     os.system('cls')
@@ -16,6 +14,7 @@ def Menu():
         print("3.-Actualizar Datos de la Empresa")
         print("4.-Eliminar Datos de la Empresa")
         print("6.-Salir")
+        print('7.-buscar')
 
         opcion = int(input("Seleccione Una Opción: "))
 
@@ -61,6 +60,8 @@ def Menu():
         elif opcion ==6:
             print("Adios!")
             break
+        elif opcion ==7:
+            CRUD.buscarPorProducto()
         else:
             print("Opcion erronea")
 
